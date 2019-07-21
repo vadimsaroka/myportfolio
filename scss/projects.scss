@@ -1,0 +1,61 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  align-items: center;
+  color: #fff;
+  font-size: 2.8rem;
+
+  &__heading {
+    margin-bottom: 3.5rem;
+    animation: moveDown 1s ease-out;
+    text-align: center;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 55%;
+    margin: 0 auto;
+    animation: zoom 1s ease-out;
+
+    //1000px
+    @media only screen and (max-width: 62.5em) {
+      width: 80%;
+    }
+  }
+
+  &__text {
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

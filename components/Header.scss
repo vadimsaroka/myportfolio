@@ -1,0 +1,235 @@
+.header {
+  background-color: transparent;
+  flex: 100%;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Nunito", sans-serif;
+
+  //700px
+  @media only screen and (max-width: 43.75em) {
+    z-index: 3;
+    top: 0;
+  }
+
+  &__logo {
+    padding: 0.8rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 2.8rem;
+    margin-right: 4rem;
+    user-select: none;
+
+    //700px
+    @media only screen and (max-width: 43.75em) {
+      margin-right: 0;
+    }
+  }
+
+  &__item {
+    padding: 0.5rem 2.5rem;
+    padding-right: 1.5rem;
+    text-decoration: none;
+    margin: 1rem 2rem;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid transparent;
+    font-weight: 600;
+    letter-spacing: 0.9rem;
+    position: relative;
+    transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+    user-select: none;
+
+    //900px
+    @media only screen and (max-width: 56.52em) {
+      margin: 1rem 1.5rem;
+    }
+
+    //700px
+    @media only screen and (max-width: 43.75em) {
+      display: none;
+    }
+  }
+
+  &__item:before,
+  &__item:after {
+    content: "";
+    position: absolute;
+    transition: inherit;
+    z-index: -1;
+  }
+
+  &__item:hover,
+  &__item--active {
+    color: black;
+    transition-delay: 0.6s;
+  }
+
+  &__item:hover:before,
+  &__item--active {
+    transition-delay: 0s;
+  }
+
+  &__item:after,
+  &__item--active {
+    transition-delay: 0.4s;
+    background: #fff;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    //700px
+    @media only screen and (max-width: 43.75em) {
+      flex-direction: column;
+      padding: 2rem 0 3rem;
+      z-index: 1;
+      transition: all 0.6s;
+    }
+
+    //700px
+    @media only screen and (min-width: 43.75em) {
+      display: flex !important;
+      box-shadow: none !important;
+      background-image: none !important;
+      top: 2rem !important;
+    }
+  }
+
+  &__background {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    // top: 32rem;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    display: none;
+
+    //700px
+    @media only screen and (min-width: 43.75em) {
+      display: none;
+      background-image: none !important;
+    }
+  }
+
+  //sidebar
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    transform: rotate(135deg);
+    top: 0;
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    transform: rotate(-135deg);
+    top: 0;
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__checkbox:checked ~ &__nav &__item {
+    display: block;
+  }
+
+  &__checkbox:checked ~ &__background {
+    display: block;
+  }
+
+  &__button {
+    height: 6rem;
+    width: 6rem;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 1.5rem;
+    z-index: 2;
+
+    //700px
+    @media only screen and (min-width: 43.75em) {
+      display: none;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 3rem;
+    margin-left: 1.5rem;
+  }
+
+  &__icon,
+  &__icon::after,
+  &__icon::before {
+    width: 3rem;
+    height: 0.24rem;
+    background-color: #ffffff;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  &__icon::before,
+  &__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  &__icon::before {
+    top: -0.8rem;
+  }
+
+  &__icon::after {
+    top: 0.8rem;
+  }
+}
+
+//Button style
+.from-left:before,
+.from-left:after {
+  top: 0;
+  width: 0;
+  height: 100%;
+}
+
+.from-left:before,
+.header__item--active {
+  right: 0;
+  border: 1px solid #fff;
+  border-left: 0;
+  border-right: 0;
+}
+
+.from-left:after {
+  left: 0;
+}
+
+.from-left:hover:before,
+.from-left:hover:after {
+  width: 100%;
+}

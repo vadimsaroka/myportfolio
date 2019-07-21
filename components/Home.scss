@@ -1,0 +1,217 @@
+.home {
+  &__content {
+    color: #fff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+    //700px
+    @media only screen and (max-width: 43.75em) {
+      font-size: 2rem;
+    }
+  }
+  &__header h2 {
+    font-weight: normal;
+    letter-spacing: 0.4rem;
+
+    //700px
+    @media only screen and (max-width: 43.75em) {
+      letter-spacing: 0.1rem;
+    }
+  }
+  &__top {
+    animation: moveRight 1s ease-out;
+  }
+  &__bottom {
+    animation: moveLeft 1s ease-out;
+  }
+  &__btn {
+    padding: 1.2rem 2rem;
+    position: relative;
+    margin: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    outline: none;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 0.2rem;
+    transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  &__btn:hover {
+    background-color: transparent;
+  }
+  &__btn:before,
+  &__btn:after {
+    content: "";
+    position: absolute;
+    transition: inherit;
+    z-index: -1;
+  }
+  &__btn:hover {
+    color: #fff;
+    transition-delay: 0;
+  }
+  &__btn:hover:before {
+    transition-delay: 0.4s;
+  }
+  &__btn:after {
+    transition-delay: 0s;
+    background: #fff;
+  }
+  &__btns {
+    margin-top: 3.5rem;
+    animation: moveUp 1s ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.from-right:before,
+.from-right:after {
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.from-right:before {
+  right: 0;
+  border: 1px solid #fff;
+  border-left: 100%;
+  border-right: 100%;
+}
+
+.from-right:after {
+  left: 0;
+}
+
+.from-right:hover:before,
+.from-right:hover:after {
+  width: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20rem);
+  }
+  50% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20rem);
+  }
+  50% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(3.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated {
+  display: inline-block;
+  user-select: none;
+}
+
+.animated:hover {
+  cursor: default;
+  animation: shake 0.9s;
+  backface-visibility: hidden;
+}
+
+.empty {
+  user-select: none;
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    -ms-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    -ms-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    -ms-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    -ms-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    -ms-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+// @keyframes pulse {
+//   0% {
+//       -webkit-transform: scale3d(1,1,1);
+//       -ms-transform: scale3d(1,1,1);
+//       transform: scale3d(1,1,1)
+//   }
+
+//   50% {
+//       -webkit-transform: scale3d(1.05,1.05,1.05);
+//       -ms-transform: scale3d(1.05,1.05,1.05);
+//       transform: scale3d(1.05,1.05,1.05)
+//   }
+
+//   100% {
+//       -webkit-transform: scale3d(1,1,1);
+//       -ms-transform: scale3d(1,1,1);
+//       transform: scale3d(1,1,1)
+//   }
+// }
