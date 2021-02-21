@@ -48,7 +48,7 @@ class ContactForm extends React.Component {
     }
   };
 
-  renderSeccess = () => {
+  renderSuccess = () => {
     if (this.state.success) {
       setTimeout(() => {
         this.setState({
@@ -212,7 +212,7 @@ class ContactForm extends React.Component {
               id="html_element"
               style={{ position: "inherit", opacity: "0.7" }}
             />
-            {this.renderSeccess()}
+            {this.renderSuccess()}
             <input
               type="submit"
               className="contact__btn"
